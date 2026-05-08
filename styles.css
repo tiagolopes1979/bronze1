@@ -497,6 +497,7 @@
     position: relative;
     overflow: hidden;
     transition: all 0.4s;
+    isolation: isolate;
   }
   .service-card::before {
     content: '';
@@ -508,12 +509,12 @@
     transition: transform 0.4s;
     transform-origin: left;
   }
-  .service-card:hover::before { transform: scaleX(1); }
-  .service-card:hover { background: rgba(45,31,10,0.9); }
   .service-icon {
     font-size: 2.5rem;
     margin-bottom: 24px;
     display: block;
+    position: relative;
+    z-index: 1;
   }
   .service-num {
     position: absolute;
@@ -523,6 +524,8 @@
     font-weight: 300;
     color: rgba(201,169,110,0.08);
     line-height: 1;
+    pointer-events: none;
+    z-index: 0;
   }
   .service-name {
     font-family: 'Cormorant Garamond', serif;
@@ -530,18 +533,24 @@
     font-weight: 400;
     margin-bottom: 14px;
     color: var(--cream);
+    position: relative;
+    z-index: 1;
   }
   .service-desc {
     font-size: 0.85rem;
     color: var(--text-muted);
     line-height: 1.75;
     font-weight: 300;
+    position: relative;
+    z-index: 1;
   }
   .service-price {
     margin-top: 28px;
     display: flex;
     align-items: baseline;
     gap: 6px;
+    position: relative;
+    z-index: 1;
   }
   .price-from { font-size: 0.65rem; letter-spacing: 0.2em; color: var(--text-muted); text-transform: uppercase; }
   .price-value {
@@ -562,8 +571,18 @@
     text-decoration: none;
     cursor: none;
     transition: gap 0.3s;
+    position: relative;
+    z-index: 1;
   }
   .service-book:hover { gap: 14px; }
+  .price-installment {
+    display: block;
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+    font-weight: 300;
+    margin-top: 2px;
+  }
 
   /* HOW IT WORKS */
   .how-section {
@@ -664,6 +683,45 @@
     filter: drop-shadow(0 10px 22px rgba(0,0,0,0.28));
     transition: transform 0.35s ease;
   }
+  .product-img img.is-hidden {
+    display: none;
+  }
+  .product-img-fallback {
+    position: absolute;
+    inset: 18px;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border: 1px dashed rgba(201,169,110,0.24);
+    background: linear-gradient(135deg, rgba(26,17,8,0.72), rgba(45,31,10,0.92));
+    text-align: center;
+    padding: 18px;
+    z-index: 1;
+  }
+  .product-img-fallback.is-visible {
+    display: flex;
+  }
+  .product-fallback-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    border: 1px solid rgba(201,169,110,0.28);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold);
+    font-size: 0.82rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+  .product-fallback-text {
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(249,243,234,0.68);
+  }
   .product-img::after {
     content: '';
     position: absolute;
@@ -678,11 +736,16 @@
     top: 14px; right: 14px;
     background: var(--gold);
     color: var(--dark);
+    max-width: calc(100% - 28px);
     font-size: 0.62rem;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
     padding: 5px 10px;
     font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    z-index: 2;
   }
   .product-info { padding: 24px; }
   .product-category {
@@ -814,6 +877,17 @@
     cursor: none;
   }
   .btn-wa-outline:hover { border-color: var(--gold); color: var(--gold); }
+  .is-disabled {
+    opacity: 0.55;
+    pointer-events: auto;
+  }
+  .is-disabled:hover {
+    transform: none;
+    box-shadow: none;
+  }
+  [aria-disabled="true"] {
+    cursor: not-allowed;
+  }
   .wa-icon { font-size: 1.2rem; }
 
   /* TESTIMONIALS */
@@ -1047,6 +1121,22 @@
     box-shadow: none;
   }
 
+  /* URGENCY BADGE */
+  .urgency-badge {
+    margin-top: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 18px;
+    background: rgba(201,169,110,0.08);
+    border: 1px solid rgba(201,169,110,0.18);
+    font-size: 0.78rem;
+    color: var(--gold-light);
+    line-height: 1.5;
+    font-weight: 300;
+  }
+  .urgency-icon { font-size: 1rem; flex-shrink: 0; }
+
   /* FOOTER */
   footer {
     background: #0D0A04;
@@ -1169,12 +1259,20 @@
   @media (max-width: 1024px) {
     nav { padding: 24px 30px; }
     nav.scrolled { padding: 16px 30px; }
-    .hero { padding: 0 30px; }
+    .hero {
+      min-height: auto;
+      padding: 150px 30px 80px;
+      align-items: flex-start;
+    }
     .hero-stats { right: 30px; }
     .section, .how-section, .products-section, .testimonials, .booking-section, .faq-section { padding: 70px 30px; }
     .proof-strip { padding: 24px 30px 0; grid-template-columns: 1fr; }
     .about-section { padding: 70px 30px 10px; grid-template-columns: 1fr; }
-    .services-grid { grid-template-columns: 1fr 1fr; }
+    .services-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      background: transparent;
+    }
     .steps { grid-template-columns: repeat(2, 1fr); }
     .steps::before { display: none; }
     .products-grid { grid-template-columns: repeat(2, 1fr); }
@@ -1209,13 +1307,96 @@
       justify-content: center;
     }
     .hero-orb { width: 300px; height: 300px; }
+    .hero-tag {
+      display: block;
+      max-width: calc(100% - 90px);
+      line-height: 1.5;
+    }
+    .hero-tag::before {
+      width: 24px;
+      margin-right: 10px;
+    }
+    .hero-stats {
+      position: static;
+      margin-top: 44px;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      gap: 28px;
+    }
   }
   @media (max-width: 640px) {
     .services-grid, .products-grid, .testi-grid { grid-template-columns: 1fr; }
     .steps { grid-template-columns: 1fr; }
     .footer-top { grid-template-columns: 1fr; }
+    nav {
+      padding: 20px;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    nav.scrolled { padding: 16px 20px; }
+    .nav-logo {
+      flex: 1;
+      min-width: 0;
+      font-size: 1.15rem;
+      letter-spacing: 0.12em;
+      line-height: 1.15;
+      white-space: normal;
+      overflow-wrap: anywhere;
+    }
+    .nav-toggle {
+      flex: 0 0 auto;
+      width: 44px;
+      height: 44px;
+    }
     .hero h1 { font-size: 3rem; }
-    .hero-stats { position: static; margin-top: 50px; justify-content: flex-start; }
+    .hero {
+      padding: 136px 20px 72px;
+    }
+    .hero-content {
+      max-width: 100%;
+    }
+    .hero-tag {
+      max-width: 100%;
+      margin-bottom: 20px;
+      font-size: 0.64rem;
+      letter-spacing: 0.24em;
+    }
+    .hero-tag::before {
+      display: none;
+    }
+    .hero h1 {
+      margin-bottom: 20px;
+      line-height: 1.02;
+    }
+    .hero p {
+      max-width: 100%;
+      margin-bottom: 34px;
+    }
+    .hero-stats {
+      margin-top: 38px;
+      gap: 22px;
+    }
+    .service-card {
+      padding: 38px 24px 34px;
+    }
+    .service-num {
+      top: 22px;
+      right: 22px;
+      font-size: 2.8rem;
+      opacity: 0.5;
+    }
+    .product-img {
+      padding: 18px 14px;
+    }
+    .product-badge {
+      top: 10px;
+      left: 10px;
+      right: auto;
+      max-width: calc(100% - 20px);
+      font-size: 0.55rem;
+      letter-spacing: 0.08em;
+      padding: 5px 8px;
+    }
     .proof-item,
     .about-card,
     .faq-card,
@@ -1225,6 +1406,41 @@
     .nav-menu {
       left: 20px;
       right: 20px;
+    }
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-card:hover { background: rgba(45,31,10,0.9); }
+  }
+
+  @media (hover: none), (pointer: coarse) {
+    .service-card::before {
+      display: none;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+    .hero-orb,
+    .hero-orb::before,
+    .hero-orb::after,
+    .wa-float-btn {
+      animation: none !important;
+    }
+    .reveal {
+      opacity: 1;
+      transform: none;
     }
   }
 

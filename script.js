@@ -4,42 +4,48 @@ const services = [
     name: 'Marquinha Express',
     description: 'Sessão para quem quer ganhar cor com rapidez e sair com orientação objetiva de preparo e manutenção.',
     price: 'R$ 55',
-    badge: '01'
+    badge: '01',
+    installment: 'ou 3x de R$ 19'
   },
   {
     icon: '✨',
     name: 'Bronze Natural Guiado',
     description: 'Atendimento ajustado para o seu tom de pele, com foco em uniformidade, conforto e menor risco de erro no resultado.',
     price: 'R$ 75',
-    badge: '02'
+    badge: '02',
+    installment: 'ou 3x de R$ 25'
   },
   {
     icon: '🧴',
     name: 'Autobronzeamento sem Sol',
     description: 'Aplicação profissional para quem quer cor imediata e uniforme sem exposição, ótima opção para evento ou manutenção.',
     price: 'R$ 95',
-    badge: '03'
+    badge: '03',
+    installment: 'ou 3x de R$ 32'
   },
   {
     icon: '📅',
     name: 'Manutenção Mensal',
     description: 'Pacote para cliente recorrente que quer previsibilidade, economia por sessão e rotina de bronze sem depender de encaixe solto.',
     price: 'R$ 210',
-    badge: '04'
+    badge: '04',
+    installment: 'ou 3x de R$ 70'
   },
   {
     icon: '🌿',
     name: 'Pré-Bronze e Banho de Lua',
     description: 'Preparação indicada para melhorar o acabamento da pele antes da sessão e aumentar a chance de um bronze mais limpo.',
     price: 'R$ 65',
-    badge: '05'
+    badge: '05',
+    installment: 'ou 3x de R$ 22'
   },
   {
     icon: '👑',
     name: 'Combo Pré-Evento',
     description: 'Sessão pensada para casamento, viagem, ensaio ou festa, com preparação, bronze e recomendação de produto para segurar o resultado.',
     price: 'R$ 150',
-    badge: '06'
+    badge: '06',
+    installment: 'ou 3x de R$ 50'
   }
 ];
 
@@ -50,7 +56,7 @@ const products = [
     name: 'Fitas Cores Tradicionais Show Bronze Fixy',
     description: 'Uma das campeãs de giro no segmento. Fita 18 mm x 20 m para montagem de biquíni com alta aderência e baixa retenção de calor.',
     price: 'R$ 4,50',
-    badge: '5.798 vendidos',
+    badge: '5,8 mil vendas',
     link: 'https://armazemdobronze.com.br/produto/fitas-cores-tradicionais-show-bronze-fixy-2/'
   },
   {
@@ -59,7 +65,7 @@ const products = [
     name: 'Fitas Cores Tradicionais Decorbronze',
     description: 'Exemplo clássico de fita vendida em personal bronze e espaços de marquinha. Produto com giro muito alto e várias medidas.',
     price: 'R$ 3,99',
-    badge: '9.998 vendidos',
+    badge: '10 mil vendas',
     link: 'https://armazemdobronze.com.br/produto/fitas-cores-tradicionais-decorlux/'
   },
   {
@@ -68,7 +74,7 @@ const products = [
     name: 'Fitas Estampadas Especiais Decorbronze',
     description: 'Fitas estampadas usadas para diferenciação visual do bronze. Boa saída em estúdios que oferecem biquínis personalizados.',
     price: 'R$ 6,99',
-    badge: '4.235 vendidos',
+    badge: '4,2 mil vendas',
     link: 'https://armazemdobronze.com.br/produto/fitas-estampadas-especiais-decorlux/'
   },
   {
@@ -77,7 +83,7 @@ const products = [
     name: 'Fita Preta Brilhosa Adere',
     description: 'Outra fita muito comum em salões de bronzeamento. Entra como opção de maleabilidade e acabamento mais firme na montagem.',
     price: 'R$ 6,60',
-    badge: '2.299 vendidos',
+    badge: '2,3 mil vendas',
     link: 'https://armazemdobronze.com.br/produto/fita-preta-adere/'
   },
   {
@@ -194,7 +200,7 @@ const products = [
     name: 'Autobronzeador Spray Fácil 150 ml Best Bronze',
     description: 'Um dos mais fortes da linha Best Bronze, muito citado entre mais vendidos da marca para bronze sem sol.',
     price: 'R$ 142,90',
-    badge: '581 reviews',
+    badge: '581 avaliacoes',
     link: 'https://bestbronze.com.br/products/autobronzeador-spray-facil-150-ml'
   },
   {
@@ -203,7 +209,7 @@ const products = [
     name: 'Mousse Autobronzeador Clear Vegan 150 ml',
     description: 'Mousse de grande saída no e-commerce da marca, usado como referência de bronze uniforme sem manchas.',
     price: 'R$ 125,00',
-    badge: '147 reviews',
+    badge: '147 avaliacoes',
     link: 'https://bestbronze.com.br/products/autobronzeador-clear-mousse-vegan-bronzeador-150ml'
   },
   {
@@ -212,7 +218,7 @@ const products = [
     name: 'Leg Makeup Best Bronze',
     description: 'Maquiagem corporal muito conhecida da marca, vendida para acabamento visual imediato em pernas e corpo.',
     price: 'R$ 109,00',
-    badge: '646 reviews',
+    badge: '646 avaliacoes',
     link: 'https://bestbronze.com.br/products/leg-makeup'
   },
   {
@@ -221,10 +227,18 @@ const products = [
     name: 'Luva Aplicadora Make It Easier',
     description: 'Acessório real de venda recorrente para aplicação de mousse e autobronzeador sem manchar as mãos.',
     price: 'R$ 26,00',
-    badge: '49 reviews',
+    badge: '49 avaliacoes',
     link: 'https://bestbronze.com.br/products/luva-aplicadora-make-it-easier'
   }
 ];
+
+const siteConfig = {
+  whatsappNumber: '5500000000000',
+  whatsappDisplay: '(00) 99000-0000',
+  instagramHandle: '@peditobronze',
+  instagramUrl: 'https://instagram.com/peditobronze',
+  contactEmail: 'contato@peditobronze.com'
+};
 
 const availableTimes = ['08:00', '09:00', '10:00', '11:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00'];
 const saturdayTimes = availableTimes.filter(time => time !== '19:00');
@@ -243,15 +257,23 @@ const productCards = document.getElementById('productCards');
 const serviceSelect = document.getElementById('f-servico');
 const horarioSelect = document.getElementById('f-horario');
 const dateInput = document.getElementById('f-data');
+const obsInput = document.getElementById('f-obs');
 const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('.nav-links a');
 const navMenuLinks = document.querySelectorAll('.nav-menu a');
 const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
+const waLinks = document.querySelectorAll('[data-wa-link]');
+const waPhoneTargets = document.querySelectorAll('[data-wa-phone]');
+const instagramHandleTargets = document.querySelectorAll('[data-instagram-handle]');
+const instagramLinks = document.querySelectorAll('[data-instagram-link]');
+const contactEmailLink = document.querySelector('[data-contact-email]');
+const waFloatBtn = document.querySelector('.wa-float-btn');
 
 const fieldMap = {
   nome: document.getElementById('f-nome'),
   telefone: document.getElementById('f-telefone'),
   servico: serviceSelect,
+  area: document.getElementById('f-area'),
   data: dateInput,
   horario: horarioSelect
 };
@@ -260,6 +282,15 @@ let mx = 0;
 let my = 0;
 let fx = 0;
 let fy = 0;
+let currentSection = '';
+
+const sectionMessages = {
+  servicos: 'Olá! Quero saber mais sobre os serviços de bronze da Pedito Bronze.',
+  produtos: 'Olá! Quero informações sobre os produtos da Pedito Bronze.',
+  'como-funciona': 'Olá! Quero entender como funciona o processo na Pedito Bronze.',
+  depoimentos: 'Olá! Vi os depoimentos e quero agendar uma sessão na Pedito Bronze.',
+  agendar: 'Olá! Quero agendar uma sessão na Pedito Bronze.'
+};
 
 function animFollower() {
   fx += (mx - fx) * 0.12;
@@ -269,19 +300,27 @@ function animFollower() {
 }
 
 function renderServices() {
-  serviceCards.innerHTML = services.map(service => `
-    <article class="service-card">
-      <span class="service-icon" aria-hidden="true">${service.icon}</span>
-      <span class="service-num">${service.badge}</span>
-      <h3 class="service-name">${service.name}</h3>
-      <p class="service-desc">${service.description}</p>
-      <div class="service-price">
-        <span class="price-from">A partir de</span>
-        <span class="price-value">${service.price}</span>
-      </div>
-      <a href="#agendar" class="service-book">Agendar →</a>
-    </article>
-  `).join('');
+  const waAvailable = hasValidWhatsAppConfig();
+  serviceCards.innerHTML = services.map(service => {
+    const waMessage = `Olá! Tenho interesse no serviço: ${service.name} — ${service.price}`;
+    const href = waAvailable ? buildWhatsAppUrl(waMessage) : '#agendar';
+    const target = waAvailable ? '_blank' : '';
+    const rel = waAvailable ? 'noopener noreferrer' : '';
+    return `
+      <article class="service-card">
+        <span class="service-icon" aria-hidden="true">${service.icon}</span>
+        <span class="service-num">${service.badge}</span>
+        <h3 class="service-name">${service.name}</h3>
+        <p class="service-desc">${service.description}</p>
+        <div class="service-price">
+          <span class="price-from">A partir de</span>
+          <span class="price-value">${service.price}</span>
+          <span class="price-installment">${service.installment}</span>
+        </div>
+        <a href="${href}" class="service-book" target="${target}" rel="${rel}">Agendar →</a>
+      </article>
+    `;
+  }).join('');
 }
 
 function renderProducts() {
@@ -289,6 +328,10 @@ function renderProducts() {
     <article class="product-card reveal-card">
       <div class="product-img">
         <img src="${product.image}" alt="${product.name}" loading="lazy">
+        <div class="product-img-fallback" aria-hidden="true">
+          <span class="product-fallback-icon">PB</span>
+          <span class="product-fallback-text">${product.category}</span>
+        </div>
         ${product.badge ? `<div class="product-badge">${product.badge}</div>` : ''}
       </div>
       <div class="product-info">
@@ -311,8 +354,68 @@ function bindProductImageFallbacks() {
 
   productImages.forEach(image => {
     image.addEventListener('error', () => {
-      image.style.display = 'none';
+      const fallback = image.parentElement.querySelector('.product-img-fallback');
+      image.classList.add('is-hidden');
+      if (fallback) fallback.classList.add('is-visible');
     }, { once: true });
+  });
+}
+
+function normalizeWhatsAppNumber(value) {
+  return value.replace(/\D/g, '');
+}
+
+function hasValidWhatsAppConfig() {
+  const digits = normalizeWhatsAppNumber(siteConfig.whatsappNumber);
+  return digits.length >= 12 && !/^5500+$/.test(digits);
+}
+
+function buildWhatsAppUrl(message) {
+  const digits = normalizeWhatsAppNumber(siteConfig.whatsappNumber);
+  const baseUrl = `https://wa.me/${digits}`;
+  return message ? `${baseUrl}?text=${encodeURIComponent(message)}` : baseUrl;
+}
+
+function disableWhatsAppLinks() {
+  waLinks.forEach(link => {
+    link.setAttribute('href', '#agendar');
+    link.setAttribute('aria-disabled', 'true');
+    link.classList.add('is-disabled');
+    link.removeAttribute('target');
+    link.dataset.waUnavailable = 'true';
+  });
+}
+
+function applyContactConfig() {
+  waPhoneTargets.forEach(target => {
+    target.textContent = siteConfig.whatsappDisplay;
+  });
+
+  instagramHandleTargets.forEach(target => {
+    target.textContent = siteConfig.instagramHandle;
+  });
+
+  instagramLinks.forEach(link => {
+    link.setAttribute('href', siteConfig.instagramUrl);
+  });
+
+  if (contactEmailLink) {
+    contactEmailLink.textContent = siteConfig.contactEmail;
+    contactEmailLink.setAttribute('href', `mailto:${siteConfig.contactEmail}`);
+  }
+
+  if (!hasValidWhatsAppConfig()) {
+    disableWhatsAppLinks();
+    return;
+  }
+
+  waLinks.forEach(link => {
+    const message = link.dataset.waMessage || '';
+    link.setAttribute('href', buildWhatsAppUrl(message));
+    link.setAttribute('target', '_blank');
+    link.removeAttribute('aria-disabled');
+    link.classList.remove('is-disabled');
+    delete link.dataset.waUnavailable;
   });
 }
 
@@ -409,6 +512,15 @@ function validateService() {
   return true;
 }
 
+function validateArea() {
+  if (!fieldMap.area.value) {
+    setFieldError('area', 'Selecione a área do corpo para o atendimento.');
+    return false;
+  }
+  clearFieldError('area');
+  return true;
+}
+
 function validateDate() {
   const value = fieldMap.data.value;
   if (!value) {
@@ -458,6 +570,7 @@ function validateForm() {
     validateName(),
     validatePhone(),
     validateService(),
+    validateArea(),
     validateDate(),
     validateTime()
   ];
@@ -493,14 +606,16 @@ function buildBookingMessage() {
   const nome = fieldMap.nome.value.trim();
   const telefone = fieldMap.telefone.value.trim();
   const servico = fieldMap.servico.value;
+  const area = fieldMap.area.value;
   const data = new Date(`${fieldMap.data.value}T12:00:00`).toLocaleDateString('pt-BR');
   const horario = fieldMap.horario.value;
-  const obs = document.getElementById('f-obs').value.trim();
+  const obs = obsInput.value.trim();
 
   let message = 'Olá! Gostaria de agendar uma sessão na Pedito Bronze 💛\n\n';
   message += `👤 *Nome:* ${nome}\n`;
   message += `📱 *WhatsApp:* ${telefone}\n`;
   message += `💆 *Serviço:* ${servico}\n`;
+  message += `🎯 *Área:* ${area}\n`;
   message += `📅 *Data:* ${data}\n`;
   message += `⏰ *Horário:* ${horario}\n`;
   if (obs) message += `📝 *Observações:* ${obs}\n`;
@@ -529,6 +644,26 @@ renderProducts();
 populateServiceOptions();
 setMinBookingDate();
 updateAvailableTimes();
+applyContactConfig();
+
+function updateUrgencyBadge() {
+  const badge = document.getElementById('urgencyBadge');
+  if (!badge) return;
+  const now = new Date();
+  const day = now.getDay();
+  const hour = now.getHours();
+  const weekDays = ['domingo', 'segunda', 'terça', 'quarta', 'quinta', 'sexta', 'sábado'];
+  const maxSpots = { 1: 12, 2: 10, 3: 10, 4: 8, 5: 6, 6: 4 };
+  const spotsLeft = maxSpots[day] || 0;
+  const isOpen = day >= 1 && day <= 5 ? hour >= 8 && hour < 20 : day === 6 ? hour >= 8 && hour < 18 : false;
+  const textEl = badge.querySelector('.urgency-text');
+  if (spotsLeft <= 3) {
+    textEl.textContent = `⚡ Últimas ${spotsLeft} vagas desta ${weekDays[day]} — corre que lota!`;
+  } else {
+    textEl.textContent = `📅 ${spotsLeft} vagas disponíveis para ${weekDays[day]} — agenda abrindo`;
+  }
+}
+updateUrgencyBadge();
 
 window.addEventListener('scroll', () => {
   navbar.classList.toggle('scrolled', window.scrollY > 50);
@@ -543,6 +678,13 @@ window.addEventListener('scroll', () => {
     link.style.opacity = isActive ? '1' : '0.75';
     link.style.color = isActive ? 'var(--gold)' : '';
   });
+
+  if (current && current !== currentSection && sectionMessages[current] && hasValidWhatsAppConfig()) {
+    currentSection = current;
+    const waMsg = sectionMessages[current];
+    waFloatBtn.dataset.waMessage = waMsg;
+    waFloatBtn.setAttribute('href', buildWhatsAppUrl(waMsg));
+  }
 });
 
 const reveals = document.querySelectorAll('.reveal');
@@ -579,6 +721,7 @@ fieldMap.telefone.addEventListener('input', event => {
 
 fieldMap.nome.addEventListener('blur', validateName);
 fieldMap.servico.addEventListener('change', validateService);
+fieldMap.area.addEventListener('change', validateArea);
 fieldMap.data.addEventListener('change', () => {
   validateDate();
   updateAvailableTimes();
@@ -586,9 +729,25 @@ fieldMap.data.addEventListener('change', () => {
 });
 fieldMap.horario.addEventListener('change', validateTime);
 
+waLinks.forEach(link => {
+  link.addEventListener('click', event => {
+    if (hasValidWhatsAppConfig()) return;
+
+    event.preventDefault();
+    setFormStatus('Configure o numero real do WhatsApp antes de publicar a pagina.', 'error');
+    const bookingSection = document.getElementById('agendar');
+    if (bookingSection) bookingSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+
 bookingForm.addEventListener('submit', event => {
   event.preventDefault();
   clearFormStatus();
+
+  if (!hasValidWhatsAppConfig()) {
+    setFormStatus('Defina o numero real do WhatsApp no arquivo de configuracao antes de usar o formulario.', 'error');
+    return;
+  }
 
   if (!validateForm()) {
     setFormStatus('Revise os campos destacados antes de enviar.', 'error');
@@ -600,8 +759,7 @@ bookingForm.addEventListener('submit', event => {
   bookingSubmit.disabled = true;
   bookingSubmitText.textContent = 'Abrindo WhatsApp...';
 
-  const encodedMessage = encodeURIComponent(buildBookingMessage());
-  const popup = window.open(`https://wa.me/5500000000000?text=${encodedMessage}`, '_blank', 'noopener');
+  const popup = window.open(`${buildWhatsAppUrl(buildBookingMessage())}`, '_blank', 'noopener');
 
   if (!popup) {
     setFormStatus('Seu navegador bloqueou a abertura do WhatsApp. Libere pop-ups e tente novamente.', 'error');

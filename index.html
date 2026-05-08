@@ -162,10 +162,10 @@
     <p>Quem agenda mais rápido costuma ser quem chega pronta. Tiramos dúvidas, indicamos o melhor serviço e já deixamos sua preparação alinhada antes da sessão.</p>
   </div>
   <div class="wa-actions">
-    <a href="https://wa.me/5500000000000?text=Olá!%20Gostaria%20de%20agendar%20uma%20sessão%20na%20Pedito%20Bronze." class="btn-wa" target="_blank" rel="noopener noreferrer">
+    <a href="#" class="btn-wa" data-wa-link data-wa-message="Olá! Gostaria de agendar uma sessão na Pedito Bronze." target="_blank" rel="noopener noreferrer">
       <span class="wa-icon" aria-hidden="true">📱</span> Agendar Sessão Agora
     </a>
-    <a href="https://wa.me/5500000000000?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20os%20produtos%20da%20Pedito%20Bronze." class="btn-wa-outline" target="_blank" rel="noopener noreferrer">
+    <a href="#" class="btn-wa-outline" data-wa-link data-wa-message="Olá! Gostaria de saber mais sobre os produtos da Pedito Bronze." target="_blank" rel="noopener noreferrer">
       <span class="wa-icon" aria-hidden="true">🛒</span> Comprar Produtos
     </a>
   </div>
@@ -264,17 +264,21 @@
         </div>
         <div class="contact-item">
           <div class="contact-icon" aria-hidden="true">📱</div>
-          (00) 99000-0000 — WhatsApp comercial
+          <span data-wa-phone>(00) 99000-0000</span> — WhatsApp comercial
         </div>
         <div class="contact-item">
           <div class="contact-icon" aria-hidden="true">📸</div>
-          @peditobronze — Instagram
+          <span data-instagram-handle>@peditobronze</span> — Instagram
         </div>
       </div>
       <div class="offer-card">
         <span class="offer-eyebrow">Oferta que converte</span>
         <h3>Primeira sessão + orientação pós-bronze</h3>
         <p>Use esta área para destacar sua oferta principal da semana, combo para evento ou pacote de manutenção mensal.</p>
+      </div>
+      <div class="urgency-badge" id="urgencyBadge" aria-live="polite">
+        <span class="urgency-icon" aria-hidden="true">⚡</span>
+        <span class="urgency-text"></span>
       </div>
     </div>
     <div class="booking-form reveal">
@@ -301,6 +305,19 @@
             <option value="" selected>Selecione um serviço</option>
           </select>
           <p class="form-error" id="f-servico-error"></p>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="f-area">Área do Corpo</label>
+          <select id="f-area" class="form-select" aria-describedby="f-area-error">
+            <option value="" selected>Selecione a área</option>
+            <option value="Corpo inteiro">Corpo inteiro</option>
+            <option value="Apenas pernas">Apenas pernas</option>
+            <option value="Apenas costas">Apenas costas</option>
+            <option value="Apenas bumbum">Apenas bumbum</option>
+            <option value="Personalizado (descrever em observações)">Personalizado</option>
+          </select>
+          <p class="form-error" id="f-area-error"></p>
         </div>
 
         <div class="form-row">
@@ -361,10 +378,10 @@
     <div>
       <p class="footer-col-title">Contato</p>
       <ul class="footer-links">
-        <li><a href="#">(00) 99000-0000</a></li>
-        <li><a href="#">WhatsApp comercial</a></li>
-        <li><a href="#">@peditobronze</a></li>
-        <li><a href="#">contato@peditobronze.com</a></li>
+        <li><a href="#" data-wa-link data-wa-message="Olá! Quero falar com a Pedito Bronze."><span data-wa-phone>(00) 99000-0000</span></a></li>
+        <li><a href="#" data-wa-link data-wa-message="Olá! Quero falar com a Pedito Bronze.">WhatsApp comercial</a></li>
+        <li><a href="#" data-instagram-link><span data-instagram-handle>@peditobronze</span></a></li>
+        <li><a href="mailto:contato@peditobronze.com" data-contact-email>contato@peditobronze.com</a></li>
       </ul>
     </div>
   </div>
@@ -380,7 +397,7 @@
 
 <div class="wa-float">
   <span class="wa-float-label">Fale conosco agora!</span>
-  <a href="https://wa.me/5500000000000" target="_blank" rel="noopener noreferrer" class="wa-float-btn" aria-label="Abrir conversa no WhatsApp">📱</a>
+  <a href="#" target="_blank" rel="noopener noreferrer" class="wa-float-btn" data-wa-link data-wa-message="Olá! Quero falar com a Pedito Bronze." aria-label="Abrir conversa no WhatsApp">📱</a>
 </div>
 
 <script src="script.js"></script>
